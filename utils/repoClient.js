@@ -56,6 +56,13 @@ RepositoryClient.prototype.getAllOpenPullRequests = function(callback) {
     }, callback);
 };
 
+RepositoryClient.prototype.getContributors = function(callback) {
+    this.github.repos.getContributors({
+        user: this.org,
+        repo: this.repo
+    }, callback);
+};
+
 RepositoryClient.prototype.getAllStatusesFor = function(sha, callback) {
     this.github.statuses.get({
         user: this.org,
