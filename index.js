@@ -49,7 +49,7 @@ utils.constructRepoClients(prWebhookUrl, cfg, function(repoClients) {
         var urls = Object.keys(handlerConfig);
         urls.forEach(function(url) {
             var handler = handlerConfig[url](repoClients, dynamicHttpHandlerModules, cfg),
-                name = handler.name,
+                name = handler.title,
                 desc = handler.description,
                 msg = '==> ' + name + ' listening for url pattern: ' + url;
             if (! handler.disabled) {

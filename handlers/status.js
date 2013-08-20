@@ -7,7 +7,7 @@ function createHandlerReport(handlers) {
         var urls = Object.keys(handlerConfig);
         return urls.map(function(url) {
             var handler = handlerConfig[url](repoClients, handlers, config),
-                name = handler.name,
+                name = handler.title,
                 desc = handler.description;
                 htmlOut = '<a target="_blank" href="' + url + '">' + name + '</a>: ' + desc;
             if (handler.disabled) {
@@ -40,7 +40,7 @@ function statusReporter(req, res) {
     res.end(htmlOut);
 }
 
-statusReporter.name = 'Status Reporter';
+statusReporter.title = 'Status Reporter';
 statusReporter.description = 'Reports the repositories this tools server is monitoring.';
 
 module.exports = {

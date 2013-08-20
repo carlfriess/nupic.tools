@@ -52,7 +52,7 @@ function logViewer(req, res) {
 
 }
 
-logViewer.name = 'Log Viewer';
+logViewer.title = 'Log Viewer';
 logViewer.description = 'Provides an HTML display of the nupic.tools server logs. Defaults to display the most recent log file.';
 
 module.exports = {

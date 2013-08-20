@@ -111,7 +111,7 @@ function validateSha(req, res) {
 
 initializeValidators(VALIDATOR_DIR);
 
-validateSha.name = 'SHA Validator';
+validateSha.title = 'SHA Validator';
 validateSha.description = 'Given a "sha" parameter, forces a complete ' +
     'validation and reports results. To post validation results to github, ' +
     'specify "postStatus=1" in URL params. To force revalidation of all open ' +

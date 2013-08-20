@@ -129,7 +129,7 @@ function buildOutput (request, response, data)  {
 
 
 
-mailingListReporter.name = 'Mailing List Reporter';
+mailingListReporter.title = 'Mailing List Reporter';
 mailingListReporter.description = 'Provides statistics about the mailing list. (Outputs HTML or JSON depending on extention [*.html or *.json]. For JASONP add query "callback" [ex.: ...?callback=foo].)';
 
 module.exports = {

@@ -60,7 +60,7 @@ function prReporter(req, res) {
     });
 }
 
-prReporter.name = 'Pull Request Reporter';
+prReporter.title = 'Pull Request Reporter';
 prReporter.description = 
     'Returns a report of all open pull requests for each monitored repository. ' +
     'Supports JSON and JSONP. When no "repo" query parameter is supplied ' +

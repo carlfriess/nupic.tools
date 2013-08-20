@@ -57,10 +57,31 @@ RepositoryClient.prototype.getAllOpenPullRequests = function(callback) {
 };
 
 RepositoryClient.prototype.getContributors = function(callback) {
-    this.github.repos.getContributors({
-        user: this.org,
-        repo: this.repo
-    }, callback);
+    var me = this;
+    me.github.repos.getContributors({
+        user: me.org,
+        repo: me.repo
+    }, function(err, contributors) {
+        if (err) {
+            callback(err);
+        } else {
+            me._getRemainingPages(contributors, null, callback);
+        }
+    });
+};
+
+RepositoryClient.prototype.getCommits = function(callback) {
+    var me = this;
+    me.github.repos.getCommits({
+        user: me.org,
+        repo: me.repo
+    }, function(err, commits) {
+        if (err) {
+            callback(err);
+        } else {
+            me._getRemainingPages(commits, null, callback);
+        }
+    });
 };
 
 RepositoryClient.prototype.getAllStatusesFor = function(sha, callback) {
@@ -116,6 +137,22 @@ RepositoryClient.prototype.confirmWebhookExists = function(url, events, callback
         }
     });
 };
+
+RepositoryClient.prototype._getRemainingPages = function(lastData, allDataOld, callback) {
+    var me = this,
+        allData = [];
+    if (allDataOld) {
+        allData = allData.concat(allDataOld);
+    }
+    allData = allData.concat(lastData);
+    me.github.getNextPage(lastData, function(error, newData){
+        if (error) {
+            callback(null, allData);
+        } else {
+            me._getRemainingPages(newData, allData, callback)
+        }
+    });
+}
 
 RepositoryClient.prototype.toString = function() {
     return this.org + '/' + this.repo;

@@ -31,7 +31,7 @@ function shaReporter(req, res) {
     });
 }
 
-shaReporter.name = 'SHA Reporter';
+shaReporter.title = 'SHA Reporter';
 shaReporter.description = 
     'Returns the status of a SHA, give the "sha" and "repo" query parameters. ' + 
     'The repo should be "organization/repository".';

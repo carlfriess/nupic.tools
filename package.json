@@ -27,9 +27,10 @@
         "jsdom"         : "*"
     },
     "devDependencies": {
-        "proxyquire": "*",
+        "proxyquire": "0.5.x",
         "mocha": "1.12.x",
-        "istanbul": "0.1.x"
+        "istanbul": "0.1.x",
+        "sinon": "1.7.x"
     },
     "license": "MIT",
     "engines": {
